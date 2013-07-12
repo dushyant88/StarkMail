@@ -5,10 +5,11 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login
 from django.template.response import TemplateResponse
+from django.views.decorators.http import require_post
 
 from .forms import UserCreateForm
 
-# TODO: use the require post
+@require_post
 def post(request):
 
     form = UserCreateForm(request.POST)
